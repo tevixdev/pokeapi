@@ -42,7 +42,7 @@ const Provider = ({ children }) => {
       
     }catch(err){
       setLoading(false)
-      console.log('asdasddsdssd',err)
+      console.log(err)
     }
      
   }, [])

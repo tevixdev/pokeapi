@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 
 import { Context as LanguageContext } from 'Context/LanguageContext'
@@ -23,7 +23,7 @@ const Detail = () => {
   const location = useLocation()
   const history = useHistory()
   const { pokemons, loading, singlePokemon } = usePokemons()
-  let loadImg = false
+  let [loadImg, setLoadImg] = useState(false)
   const titleStat = isSpanish  ? 'Estadísticas' : 'Stats'
   const titleAbilities = isSpanish  ? 'Habilidades' : 'Abilities'
 
@@ -31,8 +31,8 @@ const Detail = () => {
     history.push(HOME)
   }
 
-  const handleOnLoad = (loadImg) => {
-    loadImg = true
+  const handleOnLoad = () => {
+    setLoadImg(true)
   }
   
   if (loading 
@@ -64,10 +64,10 @@ const Detail = () => {
           <img 
             alt='Pokedex details'
             className='pokedex-img' 
-            onLoad={() => handleOnLoad(loadImg)}
+            onLoad={handleOnLoad}
             src={pokdedexImg}
           />
-          <ul className='stats-pokedex'>
+          {loadImg && <ul className='stats-pokedex'>
             <p className='information-title'>{titleAbilities}</p>
             {pokemon.abilities.map(({ ability: { name } }) => (
               <li key={name}>
@@ -82,7 +82,7 @@ const Detail = () => {
               `}
               </li>
             ))}
-          </ul>
+          </ul>}
         </div>  
       </div> 
     </>

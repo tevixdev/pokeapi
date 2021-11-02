@@ -20,6 +20,7 @@ const usePokemons = () => {
     setSinglePokemon
   } = useContext(PokemonContext)
   const [ loading, setLoading ] = useState(false)
+  const [loadingNextPokemons, setLoadingNextPokemons ] = useState(false)
   const [error, setError] = useState(initialStateError)
   const location = useLocation()
   const params = useParams()
@@ -88,17 +89,18 @@ const usePokemons = () => {
 
   const getNextUrlPokemons = async () => {
     try {
+      setLoadingNextPokemons(true)
       const {
         results,
         previous,
         next,
         count
       } = await services.getNextUrlPokemons({ url: pagination.nextPage })
-      setLoading(false)
+      setLoadingNextPokemons(false)
       setPaginationAndPokemons({ previous, next, count, results })
     } catch (err) {
       setError({ msg: err, error: true })
-      setLoading(false)
+      setLoadingNextPokemons(false)
     }
   }
 
@@ -114,6 +116,7 @@ const usePokemons = () => {
     singlePokemon,
     morePokemons,
     loading,
+    loadingNextPokemons,
     error
   }
 }

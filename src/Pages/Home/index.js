@@ -12,7 +12,7 @@ import './styles.css'
 
 const Home = () => {
 
-  const { morePokemons, loading, error } = usePokemons()
+  const { morePokemons, loading, loadingNextPokemons, error } = usePokemons()
   const { isSpanish } = useContext(LanguageContext)
   const infoButton = isSpanish ? 'Cargar más' : 'Load more'
 
@@ -27,6 +27,7 @@ const Home = () => {
       </div>
     )
   }
+  
   if(error.error){
     return(
       <PageError/>
@@ -37,9 +38,13 @@ const Home = () => {
     <>
       <ContainerCard/>
       <div className='containerButton'>
-        <button className='button-loadMore' onClick={handleOnClick}>
-          {infoButton}
-        </button>
+        {loadingNextPokemons ?
+          <div className='alignItem'>
+            <Progress/> 
+          </div> :
+          <button className='button-loadMore' onClick={handleOnClick}>
+            {infoButton}
+          </button>}
       </div>
     </>
   )

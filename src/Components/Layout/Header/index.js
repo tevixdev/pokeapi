@@ -5,16 +5,22 @@ import imgTitle from 'Assets/Img/pokemon-title.png'
 import './styles.css'
 
 const Header = () => {
-  const { changeLanguage, isSpanish } = useContext(LanguageContext)
+  const { changeLanguage, language } = useContext(LanguageContext)
   const handleOnChange = (e) => {
     changeLanguage({languageValue: e.target.value})
   }
 
   return (
     <div className='header'>
-      <select className='button' name="select" onChange={handleOnChange}>
-        <option selected={isSpanish} value="spanish">Español</option>
-        <option selected={!isSpanish} value="english">Inglés</option>
+      <select
+        className='button'
+        name="select"
+        onChange={handleOnChange}
+        value={language}
+
+      >
+        <option value="spanish">Español</option>
+        <option value="english">Inglés</option>
       </select>
       <img 
         alt='header title image'

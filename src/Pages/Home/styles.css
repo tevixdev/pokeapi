@@ -5,6 +5,11 @@
     margin-bottom: 1rem;
 }
 
+.alignItem{
+    display: flex;
+    justify-content: center;
+}
+
 .button-loadMore{
     color: var(--black);
     border: 1px solid var(--gray);
