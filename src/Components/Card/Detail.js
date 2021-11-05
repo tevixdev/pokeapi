@@ -6,11 +6,13 @@ import { Context as LanguageContext } from 'Context/LanguageContext'
 import usePokemons from 'Hooks/usePokemons'
 import pokdedexImg from 'Assets/Img/pokedex.png'
 
+
 import { HOME } from 'Constants/routes'
 import './styles.css'
 import Loader from 'Components/Pogress'
 
 const Detail = () => {
+
  
   const { 
     statsInDiffLanguage, 

@@ -13,8 +13,8 @@ export const services = {
   getSinglePokemon({name}){
     return callApi({ url: `https://pokeapi.co/api/v2/pokemon/${name}` })
   },
-  getItemLanguage({id}){
-    return callApi({ url: `https://pokeapi.co/api/v2/stat/${id}/` })
+  getItemLanguage({id, item}){
+    return callApi({ url: `https://pokeapi.co/api/v2/${item}/${id}/` })
   }
 }
 

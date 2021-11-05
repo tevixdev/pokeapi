@@ -1,27 +1,36 @@
-import React, { useEffect, useContext } from 'react'
+import React from 'react'
 
-import { Context as PokemonContext } from 'Context/PokemonContext'
+import useScrolling from 'Hooks/useScrolling'
+
 import Card from './index'
 
 const ContainerCard = () => {
-  const { pokemons } = useContext(PokemonContext)
 
-  useEffect(() => {
-    window.scrollTo({
-      top: document.querySelector('.container-card').scrollHeight,
-      left: 0,
-      behavior: 'smooth'
-    })
-  }, [pokemons])
+  const { pokemons, scrollUp } = useScrolling()
+  const classButton = 'container button-scrollTop hidden'
+
+  const handleClick = () => {
+    scrollUp()
+  }
+
 
   return (
-    <main className='container-card'>
-      {
-        pokemons.map(({ id, name, sprites: { front_default }}) => (          
-          <Card img={front_default} key={id} name={name}/>          
-        ))
-      }
-    </main>
+    <> 
+      <main className='container-card'>
+        {
+          pokemons.map(({ id, name, sprites: { front_default }}) => (          
+            <Card 
+              img={front_default} 
+              key={id}
+              name={name}              
+            />          
+          ))
+        }
+      </main>
+      <button className={classButton} onClick={handleClick}>
+        <i className="fas fa-arrow-up"></i>
+      </button>
+    </>
   )
 }
 

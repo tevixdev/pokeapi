@@ -124,6 +124,31 @@
   background: #ffd6d6;
 }
 
+
+.button-scrollTop{
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid var(--black);
+    background-color: var(--blue);
+    padding: 1rem;    
+    cursor: pointer;
+    position: fixed;
+    top: 90vh;
+}
+
+.button-scrollTop:active{
+  transform: scale(.95);
+}
+
+.hidden{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.position{
+    position: relative;
+}
+
 @media (max-width: 600px){
 
     .img-pokeball{
@@ -148,5 +173,8 @@
         top: 32%;
         left: 46%;
         max-width: 100px;
+    }
+    .button-scrollTop{
+        top: 85vh;
     }
 }

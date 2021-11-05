@@ -10,6 +10,7 @@ const Provider = ({ children }) => {
     
   const [language, setLanguage] = useState(initialState)
   const [statsInDiffLanguage, setStatsInDiffLanguage] = useState({})
+  const [abilitiesInDiffLanguage, setabilitiesInDiffLanguage] = useState({})
   const [loading, setLoading] = useState(false)
   const isSpanish = language === 'spanish'
 
@@ -26,7 +27,7 @@ const Provider = ({ children }) => {
         setLoading(true)
         const limit = 8  
         for (let i = 1; i <= limit; i++){
-          const data = await services.getItemLanguage({id: i})
+          const data = await services.getItemLanguage({id: i, item: 'stat'})
           data.names.map(({language, name}) => {
             language.name === 'es' && statsInSpanish.push([transformKey({ text: data.name}), name])
             language.name === 'en' && statsInEnglish.push([transformKey({ text: name }), name])

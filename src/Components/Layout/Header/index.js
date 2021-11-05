@@ -17,7 +17,6 @@ const Header = () => {
         name="select"
         onChange={handleOnChange}
         value={language}
-
       >
         <option value="spanish">Español</option>
         <option value="english">Inglés</option>
