@@ -32,14 +32,9 @@
 }
 
 .img-card{
-    border-radius: 15%;
-    background-color: white;
-    margin-top: 2rem;
-    padding: 1rem;
-    border-width: 1px 0px 0 0;
-    border-style: solid;
-    border-color: #a3faff;
-    width: 60%;
+    position: absolute;
+    height: 70%;
+    width: 70%;
 }
 
 .card{
