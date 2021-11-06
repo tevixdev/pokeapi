@@ -14,6 +14,15 @@
     width: 70%;
 }
 
+.container-picture{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color:var(--white);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
 .namePokemon-card{
     font-size: 1.5rem;
     text-transform: capitalize;
@@ -23,13 +32,14 @@
 }
 
 .img-card{
-    border-radius: 50%;
+    border-radius: 15%;
     background-color: white;
     margin-top: 2rem;
     padding: 1rem;
     border-width: 1px 0px 0 0;
     border-style: solid;
     border-color: #a3faff;
+    width: 60%;
 }
 
 .card{
@@ -39,7 +49,7 @@
     box-shadow: 1px 0 2px grey;
     display: flex;
     flex-direction: column;
-    justify-content:  flex-start;
+    justify-content:  space-around;
     align-items: center;
     background-image: url(../../Assets/Img/background.jpg);
     background-size: 100% 40%;
@@ -176,5 +186,21 @@
     }
     .button-scrollTop{
         top: 85vh;
+    }
+    .container-card{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .card{
+        padding: 1rem 0;
+        min-height: unset;
+    }
+    .container-picture{
+        width: 75px;
+        height: 75px;
+    }
+    
+    .namePokemon-card{
+        font-size: 1rem;
     }
 }

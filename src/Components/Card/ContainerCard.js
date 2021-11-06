@@ -18,9 +18,9 @@ const ContainerCard = () => {
     <> 
       <main className='container-card'>
         {
-          pokemons.map(({ id, name, sprites: { front_default }}) => (          
+          pokemons.map(({ id, name, sprites: { other: { dream_world} }}) => (
             <Card 
-              img={front_default} 
+              img={dream_world?.front_default}
               key={id}
               name={name}              
             />          
